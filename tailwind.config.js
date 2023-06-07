@@ -24,6 +24,9 @@ module.exports = {
       padding: {
         "custom-x": "100px",
       },
+      gap: {
+        customGap: "150px",
+      },
     },
   },
   plugins: [require("daisyui")],

@@ -5,6 +5,7 @@ import AboutComponent from "../components/AboutComponent";
 import DetailsComponent from "../components/DetailsComponent";
 import BannerComponent from "../components/BannerComponent";
 import GaleryComponent from "../components/GaleryComponent";
+import ProductsComponent from "../components/ProductsComponent";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       <HeroComponent />
       <SpecComponent />
       <InfoComponent />
+      <ProductsComponent />
       <AboutComponent />
       <DetailsComponent />
       <BannerComponent />
