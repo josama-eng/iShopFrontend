@@ -8,13 +8,12 @@ const ProductsComponent = () => {
   useEffect(() => {
     getProducts(products)
       .then((response) => {
-        console.log(response);
         setProducts(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, [setProducts]);
 
   return (
     <div className="w-full min-h-screen flex justify-center items-end gap-customGap py-10 flex-wrap md:flex-nowrap">
@@ -25,6 +24,7 @@ const ProductsComponent = () => {
           price={product.price}
           id={product._id}
           img={product.image}
+          key={product._id}
         />
       ))}
     </div>

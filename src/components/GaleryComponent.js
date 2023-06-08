@@ -6,7 +6,6 @@ import img4 from "../assets/images/img4.jpeg";
 import img5 from "../assets/images/img5.webp";
 import img6 from "../assets/images/img6.webp";
 
-console.log(img1);
 const GaleryComponent = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-10 py-10">

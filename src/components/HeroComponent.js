@@ -9,7 +9,7 @@ const HeroComponent = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="w-full h-screen flex flex-col justify-start align-center"
+      className="w-full h-screen flex flex-col justify-start align-center text-center"
     >
       <div className="pt-10 text-white">
         <h1 className=" text-6xl">iPhone XS and iPhone XS Max:</h1>

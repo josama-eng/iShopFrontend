@@ -1,13 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const NavComponent = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      if (scrollTop > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="navbar bg-black sticky top-0">
+    <div
+      className={`navbar ${
+        isScrolled ? "bg-white text-black" : "bg-black text-white"
+      } sticky top-0 transition-colors duration-500`}
+    >
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-2xl text-white hover:bg-white-text-black">
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-2xl  hover:bg-black-text-white"
+        >
           iShop
-        </a>
+        </Link>
       </div>
       <div className="flex-none">
         <div className="dropdown dropdown-end">
@@ -15,7 +41,7 @@ const NavComponent = () => {
             <div className="indicator">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7 text-white"
+                className="h-7 w-7"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -54,10 +80,12 @@ const NavComponent = () => {
             className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="justify-between">Register</a>
+              <Link to="/register" className="justify-between">
+                Register
+              </Link>
             </li>
             <li>
-              <a>Login</a>
+              <Link to="/login">Login</Link>
             </li>
             <li>
               <a>Logout</a>
