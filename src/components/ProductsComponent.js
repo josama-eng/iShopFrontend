@@ -19,12 +19,14 @@ const ProductsComponent = () => {
     <div className="w-full min-h-screen flex justify-center items-end gap-customGap py-10 flex-wrap md:flex-nowrap">
       {products.map((product) => (
         <ProductComponent
+          product={product}
           name={product.name}
           info={product.info}
           price={product.price}
           id={product._id}
           img={product.image}
           key={product._id}
+          count={1}
         />
       ))}
     </div>

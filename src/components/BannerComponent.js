@@ -10,7 +10,7 @@ const BannerComponent = () => {
       }}
       className="w-full min-h-screen flex flex-col justify-end items-center "
     >
-      <div className="text-white pb-5">
+      <div className="text-white pb-5 text-center">
         <h2 className="text-customSize">
           No other phone <br /> is like iPhone
         </h2>

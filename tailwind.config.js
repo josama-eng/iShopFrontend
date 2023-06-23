@@ -7,6 +7,7 @@ module.exports = {
         custom: "600px",
         aboutWidth: "800px",
         imgWidth: "500px",
+        tableImgW: "100px",
       },
       height: {
         imgHeight: "500px",

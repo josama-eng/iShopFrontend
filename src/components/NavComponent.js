@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { logoutUser } from "../services/user.service";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { removeUser } from "../redux/user.slicer";
 
 const NavComponent = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const userStore = useSelector((store) => store.user.user);
+  const dispatch = useDispatch();
+  const cartCount = useSelector((store) => store.cart.totalCount);
+  const totalPrice = useSelector((store) => store.cart.totalPrice);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +33,7 @@ const NavComponent = () => {
     <div
       className={`navbar ${
         isScrolled ? "bg-white text-black" : "bg-black text-white"
-      } sticky top-0 transition-colors duration-500`}
+      } sticky top-0 transition-colors duration-500 z-10`}
     >
       <div className="flex-1">
         <Link
@@ -53,18 +61,20 @@ const NavComponent = () => {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              <span className="badge badge-sm indicator-item">8</span>
+              <span className="badge badge-sm indicator-item">{cartCount}</span>
             </div>
           </label>
           <div
             tabIndex={0}
             className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
           >
-            <div className="card-body">
-              <span className="font-bold text-lg">8 Items</span>
-              <span className="text-info">Subtotal: $999</span>
+            <div className="card-body bg-white text-black rounded-box">
+              <span className="font-bold text-lg">{cartCount} Items</span>
+              <span className="text-info">Subtotal: ${totalPrice}</span>
               <div className="card-actions">
-                <button className="btn btn-primary btn-block">View cart</button>
+                <Link to="/cart" className="btn glass">
+                  View Cart
+                </Link>
               </div>
             </div>
           </div>
@@ -72,12 +82,12 @@ const NavComponent = () => {
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              <img src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png" />
             </div>
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52 text-black"
           >
             <li>
               <Link to="/register" className="justify-between">
@@ -88,7 +98,7 @@ const NavComponent = () => {
               <Link to="/login">Login</Link>
             </li>
             <li>
-              <a>Logout</a>
+              <button onClick={() => logoutUser()}>Logout</button>
             </li>
           </ul>
         </div>
