@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../services/user.service";
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { removeUser } from "../redux/user.slicer";
 
 const NavComponent = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const userStore = useSelector((store) => store.user.user);
-  const dispatch = useDispatch();
   const cartCount = useSelector((store) => store.cart.totalCount);
   const totalPrice = useSelector((store) => store.cart.totalPrice);
 
@@ -82,7 +78,10 @@ const NavComponent = () => {
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <img src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png" />
+              <img
+                src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png"
+                alt="avatar"
+              />
             </div>
           </label>
           <ul
