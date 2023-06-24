@@ -20,11 +20,9 @@ const ProductComponent = ({ name, info, price, img, id, product }) => {
 
   return (
     <div className="text-white">
-      <img src={`http://localhost:5050/${img}`} alt="" />
+      <img src={`https://ishop-0956f618a0f9.herokuapp.com/${img}`} alt="" />
       <div className="py-5 text-center">
-        <h3 className="text-rose text-3xl">
-          <Link to={`/details/${id}`}>{name}</Link>
-        </h3>
+        <h3 className="text-rose text-3xl">{name}</h3>
         <p className="text-2xl py-2">{info}</p>
         <p>${price}</p>
         <button

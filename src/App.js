@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import NavComponent from "./components/NavComponent";
 import FooterComponent from "./components/FooterComponent";
 
-axios.defaults.baseURL = "http://localhost:5050";
+axios.defaults.baseURL = "https://ishop-0956f618a0f9.herokuapp.com/";
 
 function App() {
   return (

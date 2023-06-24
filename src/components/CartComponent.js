@@ -44,7 +44,7 @@ const CartComponent = () => {
                 <td>{item.name}</td>
                 <td>
                   <img
-                    src={`http://localhost:5050/${item.image}`}
+                    src={`https://ishop-0956f618a0f9.herokuapp.com/${item.image}`}
                     className="w-tableImgW"
                     alt=""
                   />
